@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoFuture - Устойчивое развитие бизнеса</title>
+    <style>
+        /* Базовые настройки и цвета */
+        :root {
+            --primary-dark: #1B4332;
+            --primary-light: #74C69D;
+            --accent: #B7E4C7;
+            --bg-color: #F4F7F6;
+            --text-main: #2D3142;
+            --text-muted: #6B705C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Навигация */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo span {
+            color: var(--primary-light);
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-light);
+        }
+
+        .btn-contact {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+        }
+
+        /* Главный экран (Hero) */
+        .hero {
+            text-align: center;
+            padding: 80px 20px 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn-main {
+            background-color: var(--accent);
+            color: var(--primary-dark);
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .btn-main:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        /* Блок с карточками (Bento Grid) */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            border-radius: 24px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 250px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-dark {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        .card-light {
+            background-color: white;
+            border: 1px solid #E0E0E0;
+        }
+
+        .card-accent {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+            color: white;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        /* Блок статистики */
+        .stats-section {
+            background-color: white;
+            padding: 60px 20px;
+            margin-top: 60px;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .stat-item h2 {
+            font-size: 42px;
+            color: var(--primary-light);
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Блок "О нас" */
+        .about-section {
+            display: flex;
+            max-width: 1100px;
+            margin: 80px auto;
+            padding: 0 20px;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-size: 36px;
+            color: var(--primary-dark);
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .about-image {
+            flex: 1;
+            height: 350px;
+            background: linear-gradient(45deg, var(--accent), var(--primary-light));
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Декоративные элементы внутри картинки-заглушки */
+        .about-image::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--primary-dark);
+            border-radius: 50%;
+            top: -50px;
+            right: -50px;
+            opacity: 0.2;
+        }
+        .about-image::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: white;
+            border-radius: 50%;
+            bottom: 20px;
+            left: 20px;
+            opacity: 0.4;
+        }
+
+        /* Подвал */
+        footer {
+            background-color: var(--primary-dark);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        /* Адаптивность для телефонов */
+        @media (max-width: 768px) {
+            .bento-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+            .about-section {
+                flex-direction: column;
+            }
+            nav {
+                display: none; /* Скрываем меню на телефонах для простоты */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <div class="logo">🌿 Eco<span>Future</span></div>
+        <nav>
+            <a href="#">О нас</a>
+            <a href="#">Услуги</a>
+            <a href="#">Преимущества</a>
+        </nav>
+        <a href="#" class="btn-contact">Связаться с нами</a>
+    </header>
+
+    <!-- Главный блок -->
+    <section class="hero">
+        <h1>Комплексные решения для устойчивого развития бизнеса</h1>
+        <p>Помогаем внедрять ESG-практики, оптимизировать ресурсы и повышать социальную ответственность компании.</p>
+        <a href="#" class="btn-main">Узнать больше</a>
+    </section>
+
+    <!-- Сетка с карточками (Bento Grid) -->
+    <section class="bento-grid">
+        <div class="card card-dark">
+            <h3>Консалтинг<br>и стратегия</h3>
+            <div class="card-icon">↗</div>
+        </div>
+        
+        <div class="card card-accent">
+            <h3>Экологический<br>аудит</h3>
+            <div class="card-icon">🌍</div>
+        </div>
+
+        <div class="card card-light">
+            <h3>Социальные<br>проекты</h3>
+            <div class="card-icon" style="background-color: var(--accent); color: var(--primary-dark);">🤝</div>
+        </div>
+
+        <div class="card card-light">
+            <h3>Обучение<br>персонала</h3>
+            <div class="card-icon" style="background-color: #E0E0E0; color: var(--text-main);">🎓</div>
+        </div>
+
+        <div class="card card-accent">
+            <h3>Инновационные<br>технологии</h3>
+            <div class="card-icon">💡</div>
+        </div>
+
+        <div class="card card-dark">
+            <h3>Отчетность<br>и стандарты</h3>
+            <div class="card-icon">📊</div>
+        </div>
+    </section>
+
+    <!-- Блок статистики -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-item">
+                <h2>150+</h2>
+                <p>Успешных проектов<br>по всему миру</p>
+            </div>
+            <div class="stat-item">
+                <h2>-35%</h2>
+                <p>Снижение углеродного<br>следа клиентов</p>
+            </div>
+            <div class="stat-item">
+                <h2>24/7</h2>
+                <p>Поддержка наших<br>специалистов</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок О компании -->
+    <section class="about-section">
+        <div class="about-image"></div>
+        <div class="about-content">
+            <h2>Агентство экологических инноваций</h2>
+            <p>Мы объединяем экспертизу в области экологии, социальной политики и корпоративного управления для создания долгосрочной ценности.</p>
+            <p>Наша команда помогает компаниям не просто соответствовать новым стандартам, но и находить новые точки роста через внедрение зеленых технологий.</p>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <p>© 2024 EcoFuture Agency. Все права защищены.</p>
+    </footer>
+
+</body>
+</html>
